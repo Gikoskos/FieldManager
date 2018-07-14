@@ -1,0 +1,118 @@
+/*
+    Resources.rc
+
+    Copyright (C) 2018 George Koskeridis
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+*/
+
+#pragma code_page(65001)
+
+#include <windows.h>
+#include <commctrl.h>
+#include <richedit.h>
+#include <mCtrl/chart.h>
+#include "Resources.h"
+
+
+
+
+//
+// Bitmap resources
+//
+IDB_BCKGRND        BITMAP         ".\\assets\\background-field.bmp"
+IDB_01D        BITMAP         ".\\assets\\01d.bmp"
+IDB_01N        BITMAP         ".\\assets\\01n.bmp"
+IDB_02D        BITMAP         ".\\assets\\02d.bmp"
+IDB_02N        BITMAP         ".\\assets\\02n.bmp"
+IDB_03D        BITMAP         ".\\assets\\03d.bmp"
+IDB_03N        BITMAP         ".\\assets\\03n.bmp"
+IDB_04D        BITMAP         ".\\assets\\04d.bmp"
+IDB_04N        BITMAP         ".\\assets\\04n.bmp"
+IDB_09D        BITMAP         ".\\assets\\09d.bmp"
+IDB_09N        BITMAP         ".\\assets\\09n.bmp"
+IDB_10D        BITMAP         ".\\assets\\10d.bmp"
+IDB_10N        BITMAP         ".\\assets\\10n.bmp"
+IDB_11D        BITMAP         ".\\assets\\11d.bmp"
+IDB_11N        BITMAP         ".\\assets\\11n.bmp"
+IDB_13D        BITMAP         ".\\assets\\13d.bmp"
+IDB_13N        BITMAP         ".\\assets\\13n.bmp"
+IDB_50D        BITMAP         ".\\assets\\50d.bmp"
+IDB_50N        BITMAP         ".\\assets\\50n.bmp"
+
+
+//
+// Dialog resources
+//
+IDD_MAINDLG DIALOG 0, 0, 526, 370
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_GROUP | WS_POPUP | WS_SYSMENU
+CAPTION "Διαχείριση Αγρού"
+FONT 8, "Ms Shell Dlg"
+{
+    PUSHBUTTON      "", IDP_WEATHER, 477, 71, 33, 31, WS_DISABLED | BS_BITMAP, WS_EX_CLIENTEDGE
+    CTEXT           "Στρέμματα:", 0, 189, 224, 45, 9, SS_CENTER, WS_EX_LEFT
+    LISTBOX         IDL_FARMERS, 7, 14, 142, 247, WS_TABSTOP | WS_VSCROLL | LBS_NOINTEGRALHEIGHT | LBS_HASSTRINGS | LBS_NOTIFY, WS_EX_LEFT
+    PUSHBUTTON      "Νέος αγρότης", IDB_NEWFARMER, 22, 271, 111, 24, 0, WS_EX_DLGMODALFRAME
+    DEFPUSHBUTTON   "Επεξεργασία δεδομένων", IDB_PROCESS, 22, 306, 111, 24, 0, WS_EX_DLGMODALFRAME
+    DEFPUSHBUTTON   "Ιστόγραμμα", IDB_CHART, 22, 340, 111, 24, 0, WS_EX_DLGMODALFRAME
+    COMBOBOX        IDC_PLANT, 176, 28, 124, 150, CBS_DROPDOWNLIST | CBS_HASSTRINGS, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_ACRES, 178, 66, 84, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_SEED, 178, 105, 84, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_FERTILIZER, 178, 144, 100, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_TOOLS, 178, 182, 134, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_ACRES_RENTED, 255, 222, 84, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_PRICE_RENTED, 255, 246, 84, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_MISC, 178, 288, 84, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    AUTOCHECKBOX    "Ποτιστικό", IDC_WATERING, 289, 283, 56, 18, 0, WS_EX_DLGMODALFRAME | WS_EX_TRANSPARENT
+    EDITTEXT        IDT_RESULTS, 173, 330, 182, 34, ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_READONLY, WS_EX_CLIENTEDGE | WS_EX_TRANSPARENT
+    EDITTEXT        IDT_WEATHERLOCATION, 385, 32, 129, 13, ES_AUTOHSCROLL, WS_EX_TRANSPARENT
+    EDITTEXT        IDT_WEATHER, 319, 53, 150, 69, WS_HSCROLL | WS_VSCROLL | ES_AUTOHSCROLL | ES_AUTOVSCROLL | ES_MULTILINE | ES_READONLY, WS_EX_CLIENTEDGE | WS_EX_TRANSPARENT
+    CONTROL         "", IDT_NEWSFEED, MSFTEDIT_CLASS, WS_TABSTOP | WS_VSCROLL | WS_BORDER | ES_NUMBER | ES_MULTILINE | ES_READONLY, 363, 132, 158, 235, WS_EX_LEFT
+    GROUPBOX        "Στρέμματα χωραφιού", 0, 170, 53, 100, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Τιμή λιπάσματος (€/στρέμμα)", 0, 170, 131, 116, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Είδος καλλιέργειας", 0, 170, 15, 136, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Τιμή σπόρων (€/στρέμμα)", 0, 170, 92, 100, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Ενοικίαση/συντήρηση μηχανημάτων (€)", 0, 170, 169, 149, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Λοιπά έξοδα (€)", 0, 170, 275, 100, 32, 0, WS_EX_LEFT
+    GROUPBOX        "Ενοικίαση χωραφιών", 0, 170, 209, 177, 56, 0, WS_EX_LEFT
+    CTEXT           "Τιμή (€/στρέμμα):", 0, 176, 248, 74, 9, SS_CENTER, WS_EX_LEFT
+    GROUPBOX        "Αποτελέσματα", 0, 169, 320, 190, 48, 0, WS_EX_LEFT
+    GROUPBOX        "Καιρός", 0, 314, 15, 205, 112, 0, WS_EX_LEFT
+    CTEXT           "Περιοχή (αγγλικά):", 0, 320, 34, 62, 9, SS_CENTER, WS_EX_LEFT
+}
+
+IDD_NAMEDLG DIALOG 0, 0, 186, 33
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Όνομα αγρότη"
+FONT 8, "Ms Shell Dlg"
+{
+    EDITTEXT        IDT_NAME, 3, 10, 119, 13, ES_AUTOHSCROLL, WS_EX_LEFT
+    PUSHBUTTON      "Cancel", IDCANCEL, 129, 18, 50, 14, 0, WS_EX_LEFT
+    DEFPUSHBUTTON   "OK", IDOK, 129, 1, 50, 14, 0, WS_EX_LEFT
+}
+
+IDD_CHARTDLG DIALOG 0, 0, 487, 286
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_WINDOWEDGE
+CAPTION "Ιστόγραμμα"
+FONT 8, "Ms Shell Dlg"
+{
+    CONTROL         "Column chart", IDC_CHART_COLUMN, MC_WC_CHART, MC_CHS_COLUMN | MC_CHS_DOUBLEBUFFER, 2, 2, 483, 258, WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "OK", IDOK, 157, 262, 168, 19, 0, WS_EX_LEFT
+}
+
+
+
+//
+// Manifest resources
+//
+1                  RT_MANIFEST    "FieldManager.exe.manifest"
