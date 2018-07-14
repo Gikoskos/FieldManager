@@ -12,7 +12,7 @@
 
 Τέλος, το πρόγραμμα παρέχει widget για ενημέρωση καιρού, καθώς και widget για αγροτικά νέα.
 
-![Gif2](https://i.imgur.com/7yIKSXs.gif)
+![Gif2](https://i.imgur.com/f3JzXaw.gif)
 
 ## Dependencies
 
